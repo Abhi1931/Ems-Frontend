@@ -1,0 +1,61 @@
+/* App.css - layout and header */
+#root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    background: transparent; /* body has background */
+}
+
+/* top navbar */
+.app-navbar {
+    background: var(--card);
+    border-bottom: 1px solid var(--surface-contrast);
+    padding: 0.5rem 0;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.03);
+}
+.app-navbar .brand {
+    font-weight: 700;
+    font-size: 1rem;
+    padding-left: 0.5rem;
+}
+
+/* page content */
+.main-content {
+    flex: 1;
+    display: block;
+    padding: 2rem 1rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* controls row (title + button) */
+.controls-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+.controls-row .right {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+/* primary call-to-action */
+.btn-primary-custom {
+    background: linear-gradient(90deg,var(--accent), color-mix(in srgb,var(--accent) 70%,transparent));
+    color: white;
+    border: 0;
+    padding: 0.55rem 0.9rem;
+    border-radius: 8px;
+    box-shadow: 0 6px 16px rgba(100,108,255,0.12);
+}
+.btn-primary-custom:hover { transform: translateY(-1px); }
+
+/* spacing helpers */
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }

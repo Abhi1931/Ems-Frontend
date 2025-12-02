@@ -1,0 +1,111 @@
+/* index.css - base styles, light/dark aware */
+:root {
+    --bg: #242424;
+    --text: rgba(255,255,255,0.92);
+    --muted: rgba(255,255,255,0.65);
+    --accent: #646cff;
+    --card: #1a1a1a;
+    --surface-contrast: rgba(255,255,255,0.04);
+    --danger: #e55353;
+    --success: #4caf50;
+    --radius: 8px;
+    font-family: system-ui, Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    color-scheme: dark;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg: #ffffff;
+        --text: #213547;
+        --muted: #6c7a86;
+        --accent: #5058ff;
+        --card: #f6f8fb;
+        --surface-contrast: rgba(0,0,0,0.03);
+        color-scheme: light;
+    }
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    background-color: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
+}
+
+/* make box-sizing predictable */
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+/* sensible defaults for anchors/buttons */
+a { color: var(--accent); text-decoration: none; font-weight: 500; }
+a:hover { color: color-mix(in srgb, var(--accent) 80%, transparent); text-decoration: underline; }
+
+button {
+    font-family: inherit;
+    border-radius: var(--radius);
+    padding: 0.5rem 0.9rem;
+    border: 1px solid transparent;
+    background: var(--card);
+    color: var(--text);
+    cursor: pointer;
+}
+button:focus { outline: 3px solid color-mix(in srgb, var(--accent) 20%, transparent); }
+
+/* keep Bootstrap default containers — don't overwrite globally */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.25rem;
+}
+
+/* helpful small utilities */
+.page-title {
+    font-size: clamp(1.6rem, 3.6vw, 2.6rem);
+    margin: 0 0 0.75rem 0;
+    font-weight: 700;
+    color: var(--text);
+}
+.small-muted {
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+/* table tweaks */
+.table {
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+    border-radius: 6px;
+    overflow: hidden;
+}
+.table thead {
+    background: rgba(0,0,0,0.6);
+    color: var(--text);
+}
+.table tbody tr td {
+    vertical-align: middle;
+}
+
+/* input / search */
+.form-control {
+    border-radius: 8px;
+    padding: 0.55rem 0.75rem;
+    background-color: var(--card);
+    color: var(--text);
+    border: 1px solid rgba(255,255,255,0.05);
+}
+.form-control::placeholder { color: var(--muted); }
+
+/* modal overlay (if you use custom modals) */
+.modal.show.d-block {
+    background: rgba(0,0,0,0.45);
+}
+/* small responsive improvements */
+@media (max-width: 720px) {
+    .table-responsive { font-size: 0.95rem; }
+    .page-title { font-size: 1.4rem; }
+}
